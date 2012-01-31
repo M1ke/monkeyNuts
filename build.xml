@@ -1,0 +1,96 @@
+<?xml version="1.0" ?>
+<project name="example" basedir="." default="local">
+	<property name="version" value="1.0"/>
+	<property name="nixdir" value="/cygdrive/m/Websites/www/"/>
+	<property name="url" value="m1ke.me"/>
+	<property name="subdir" value="monkeynuts/"/>
+	<taskdef name="sync" classname="phing.tasks.ext.FileSyncTask"/>
+	<if>
+		<not>
+			<isset property="list"/>
+		</not>
+		<then>
+			<property name="list" value="false" override="false"/>
+		</then>
+	</if>
+
+	<fileset dir="." id="core">
+		<include name="*.php"/>
+		<include name="*.htaccess"/>
+		<exclude name="z_*"/>
+		<include name="scripts/*"/>
+		<include name="theme/**"/>
+	</fileset>
+	<fileset dir="../_scripts/" id="scripts">
+		<include name="libs/*"/>
+	</fileset>
+	<fileset dir="../_themes/" id="themes">
+		<include name="*"/>
+	</fileset>
+		
+	<!-- Public targets -->
+	
+	<target name="local" description="Copy files">
+		<phingcall target="-copy">
+		</phingcall>
+	</target>
+	<target name="u" description="Upload files">
+		<phingcall target="-upload">
+			<property name="config" value="1web"/>
+		</phingcall>
+	</target>
+
+	<!-- Private targets -->
+	<target name="-upload">
+		<property name="upload" value="true"/>
+		<phingcall target="-task-rsync"></phingcall>
+	</target>
+
+	<target name="-task-rsync" depends="-copy">
+		<sync
+			sourcedir="${nixdir}${url}/${subdir}"
+			destinationdir="root@1webservices.co.uk:/var/www/vhosts/${url}/httpdocs/${subdir}"
+			listonly="${list}"
+			verbose="${sync.verbose}"
+			dirtodir="true"
+			chmod="u=rwx,go=rx">
+		</sync>
+	</target>
+
+	<target name="-copy">
+		<if>
+			<equals arg1="${upload}" arg2="1"/>
+			<then>
+				<property name="nixdir" value="${nixdir}_staged/" override="true"/>
+			</then>
+		</if>
+		<sync
+			sourcedir="."
+			destinationdir="${nixdir}${url}/${subdir}"
+			listonly="${list}"
+			verbose="${sync.verbose}">
+			<fileset refid="core"/>
+		</sync>
+		<sync
+			sourcedir="../_scripts/"
+			destinationdir="${nixdir}${url}/${subdir}scripts/"
+			listonly="${list}"
+			verbose="${sync.verbose}">
+			<fileset refid="scripts"/>
+		</sync>
+		<sync
+			sourcedir="../_functions/"
+			destinationdir="${nixdir}${url}/${subdir}"
+			listonly="${list}"
+			verbose="${sync.verbose}">
+			<fileset refid="functions"/>
+		</sync>
+		<sync
+			sourcedir="../_themes/"
+			destinationdir="${nixdir}${url}/${subdir}theme/"
+			listonly="${list}"
+			verbose="${sync.verbose}">
+			<fileset refid="themes"/>
+		</sync>
+	</target>
+</project>

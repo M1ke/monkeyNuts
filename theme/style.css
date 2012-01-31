@@ -1,0 +1,25 @@
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+
+body {font:95% 'Oswald', sans-serif; background: url(images/wood_1.png); color: #fff; padding-bottom: 10px;}
+a {color: #5a5a5a; text-decoration: none;}
+a.fb {display: block;background: url(images/fb-button.png) no-repeat; width: 176px; height: 22px; padding: 3px 0 0 32px; color: #fff;font-family: 'lucida sans'; font-size: 1.0em; font-weight: bold; text-shadow: 0 1px 1px #4D4D4D;}
+
+header {float: left; width: 530px; margin-left: 10px;}
+header h1 {margin-right: 10px;}
+header h1 a {display: block; width: 530px; height: 440px; background: url(images/logo.png) no-repeat; text-indent: -9999em;}
+header h2,header h3 {text-align: right; text-shadow: 5px 5px 5px #000; font-size: 2.3em; margin-top: 15px;}
+header h3 { font-size: 1.3em; margin-top: 15px;}
+
+div.wrap {max-width: 1024px; margin: 0 auto;}
+
+section.tweets {margin: 20px 0 0 600px;}
+section.tweets article {margin: 0 0 5px 0; padding: 5px;}
+section.tweets article:hover {background: #fff;border-radius: 5px;box-shadow: 2px 2px 5px #000;}
+section.tweets article p {font-size: 1.1em;text-shadow: 2px 2px 4px black; line-height: 26px;}
+section.tweets article h1 {padding-bottom: 5px;}
+section.tweets article:hover h1 {color: #FB6732;}
+section.tweets article:hover p {color: #000; text-shadow: none;}
+nav ul {overflow: auto; padding-top: 10px;}
+nav ul li {float: left; font-size: 1.4em;}
+nav ul li.new {float: right;}
+nav ul li a:hover {background: #fff; color: #000;}
