@@ -23,3 +23,11 @@ nav ul {overflow: auto; padding-top: 10px;}
 nav ul li {float: left; font-size: 1.4em;}
 nav ul li.new {float: right;}
 nav ul li a:hover {background: #fff; color: #000;}
+
+
+@media only screen and (max-width: 400px){
+	header {float: none; width: auto;}
+	header h1 a {height: 150px; background-position: left bottom;}
+	header h2 {text-align: center; font-size: 1.5em; margin: 0 10px;}
+	section.tweets {margin-left: 0;}
+}

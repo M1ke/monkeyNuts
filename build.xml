@@ -79,13 +79,6 @@
 			<fileset refid="scripts"/>
 		</sync>
 		<sync
-			sourcedir="../_functions/"
-			destinationdir="${nixdir}${url}/${subdir}"
-			listonly="${list}"
-			verbose="${sync.verbose}">
-			<fileset refid="functions"/>
-		</sync>
-		<sync
 			sourcedir="../_themes/"
 			destinationdir="${nixdir}${url}/${subdir}theme/"
 			listonly="${list}"

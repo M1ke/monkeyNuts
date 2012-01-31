@@ -9,6 +9,7 @@ header('Content-type: text/html; charset=utf-8');
 	<meta name="description" content="the collected tweets of @ben_nuttall and @wisemonkeyash"/>
 	<meta name="keywords" content="twitter,bromance,sitcom,monkey,nuts"/>
 	<link href="theme/css.php?_style,style" rel="stylesheet" type="text/css"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
 <div class="wrap">
