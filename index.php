@@ -28,6 +28,7 @@ foreach ($tweets as $tweet)
 {
 	$tweet['created_at']=strtotime($tweet['created_at']);
 	$tweet['created_at']=date('g:ia',$tweet['created_at']).' on '.date('l jS M',$tweet['created_at']);
+	$tweet['text']=preg_replace('@(https?://([-\w\.]+[-\w])+(:\d+)?(/([\w/_\.#-]*(\?\S+)?[^\.\s])?)?)@', '<a href="$1" target="_blank">$1</a>',$tweet['text']);
 	$html['tweet']='<h1>from '.$tweet['from_user_name'].' at <a href="http://twitter.com/'.$tweet['from_user'].'/status/'.$tweet['id_str'].'" target="_blank" rel="external">'.$tweet['created_at'].'</a></h1>';
 	$html['tweet'].='<p>'.$tweet['text'].'</p>';
 	$html['tweets'].='<article>'.$html['tweet'].'</article>';

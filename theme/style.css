@@ -26,8 +26,9 @@ nav ul li a:hover {background: #fff; color: #000;}
 
 
 @media only screen and (max-width: 400px){
-	header {float: none; width: auto;}
+	header {float: none; width: auto; margin: 0;}
 	header h1 a {height: 150px; background-position: left bottom;}
 	header h2 {text-align: center; font-size: 1.5em; margin: 0 10px;}
+	header h3 {margin-right: 10px;}
 	section.tweets {margin-left: 0;}
 }
