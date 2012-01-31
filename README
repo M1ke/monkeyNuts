@@ -1,0 +1,5 @@
+This git repo is the code for the monkeyNuts website at http://m1ke.me/monkeynuts/
+
+It probably won't look quite right as it uses three generic CSS files which I keep in a separate directory and build in with Phing. Still, feel free to change the actual site; I'm currently brainstorming a way to combine multiple streams without having to go to a database but keeping them properly chronological.
+
+31/01/2012
