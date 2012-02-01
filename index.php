@@ -1,24 +1,4 @@
 <?php
-// if (!function_exists('json_decode')){
-// function json_decode($json,$array=true)
-// {
-    // $comment=false;
-    // $out='$x=';
-    // for ($n=0;$n<strlen($json);$n++)
-    // {
-        // if (!$comment)
-        // {
-            // if ($json[$n]=='{' or $json[$n]=='[') $out.=' array(';
-            // else if ($json[$n]=='}' or $json[$n]==']') $out.=')';
-            // else if ($json[$n]==':') $out.='=>';
-            // else $out.=$json[$n];
-        // }
-        // else $out.=$json[$n];
-        // if ($json[$n]=='"') $comment=!$comment;
-    // }
-    // eval($out.';');
-    // return $x;
-// }}
 
 $twitter_url='http://search.twitter.com/search.json';
 $json=file_get_contents($twitter_url.'?q=from:@ben_nuttall%20wisemonkeyash'.(isset($_GET['page'])?'&page='.$_GET['page']:''));
